@@ -1,0 +1,216 @@
+%\documentclass[article]{abntex2}
+%\usepackage[alf]{abntex2cite}
+%\usepackage[brazil]{babel}
+%\usepackage{graphicx}
+%\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+%\usepackage{indentfirst}
+%\setlength{\parindent}{1,25cm}
+%\usepackage{lipsum}
+
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{indentfirst}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{}
+\rhead{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{myheadings}
+
+\usepackage[left=3cm,top=3cm,right=2cm,bottom=2cm]{geometry}
+\usepackage{microtype}
+%--ref,=. ABNT:
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf, abnt-etal-list=0]{abntex2cite}	% Citações padrão ABNT
+\citebrackets()
+\thispagestyle{empty}
+\setcounter{page}{0}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\setlength{\parindent}{1.0cm}
+\linespread{1.2}
+
+\begin{document}
+\renewcommand{\refname}{}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.12\linewidth]{IconUFPA.png}
+    \label{fig:my_label}
+    
+\end{figure} 
+
+{
+\begin{center}
+\vspace{0,1cm}\textbf{Serviço Público Federal}\\
+\vspace{0,1cm}\textbf{Universidade Federal do Pará}\\
+\vspace{0,1cm}\textbf{Instituto de Ciências Exatas e Naturais}\\
+\vspace{0,1cm}\textbf{Programa de Pós-Graduação em Matemática e Estatística}
+\end{center}
+}
+
+{
+\begin{center}
+
+Autor 1\\
+Autor 2\\
+\end{center}
+}
+{
+\begin{center}
+
+\textbf{Análise de Sobrevivência com censura dependente baseada em Cópulas\\Arquimedianas}
+\end{center}
+}
+
+ %%\textbf{}
+ %%}
+
+%%\begin{flushleft}
+\section{Metodologia}
+%%\end{flushleft}
+
+
+\subsection{Modelos de Cópula}
+A criação de dependência das variáveis casuais é completamente determinada pela distribuição conjunta; assim, íntegra aplicação de distribuição de variáveis aleatórias implicitamente contém tanto as definições dos comportamentos individuais de cada uma das variáveis aleatórias componentes da reta pelo que a descrição do sistema de associação existente entre as amostras. As cópulas são relacionadas ao estudo das funções de distribuição conjunta quando suas distribuições individuais estão previamente dadas ou memorizadas. Além disso, as cópulas são invariantes por transformações estritamente crescentes das variáveis aleatórias em análise \cite{lopes18}.
+
+\vspace{0,2cm}
+Dessa forma, introduzidas por \citeonline{sklar1959}, as cópula aparecem como uma alternativa para mensurar a dependência entre a vida útil \textit{T} e o tempo de censura \textit{U}. De acordo com \citeonline{nelsen2007}, funções cópula são estruturas que permitem modelar a dependência entre variáveis uniformes. Devido a dimensão das variáveis analisadas nesse estudo, as funções de cópula serão
+descritas levando em consideração o caso bivariado, mas a partir disso, o caso multivariado pode ser facilmente obtido.
+
+Seja um par de variáveis aleatórias \Big(\textit{V} $\sim$ \textit{U}(0,1),  \textit{W} $\sim$ \textit{U}(0,1) \Big) Logo, existe a função cópula $C_{\theta}$ que satisfaz
+
+\begin{equation*}
+P(V \le v, W \le w) = C_{\theta}(v,w),\quad\quad C_{\theta} : [0,1]^2 \rightarrow [0,1],
+\end{equation*}
+em que $\theta$ é o parâmetro de dependência da cópula.
+
+
+O teorema que será apresentado a seguir, conhecido como \textit{teorema de Sklar}, consiste no resultado mais importante referente à teoria e aplicações de cópulas, em que, a estrutura de dependência entre variáveis de interesse pode ser modelada considerando suas distribuições marginais separadamente da dependência imposta pela distribuição conjunta.
+\newpage
+\noindent\textbf{Teorema 2.1:} Para qualquer vetor aleatório (X,Y) existe uma função $C_{\theta}(v,w)$, tal que:
+
+
+
+\begin{equation*}
+F_{X,Y}(x,y)=C_{\theta} \Big( F_{X}(x), F_{Y}(y) \Big), \hspace{20mm} \forall x,y \in\overline{\mathbb{R}},
+\end{equation*}
+
+\noindent pois é possível fazer a conversão $X = F_X^{-}^{1}(V)$ e $Y = F_Y^{-}^{1}(W)$.
+
+Para as variáveis aleatórias \textit{T} e \textit{U}, representando a duração até a falha e até a censura,
+respectivamente, o chamado modelo cópula de sobrevivência é dado por
+
+\begin{equation*}
+P(T > t,U > u) = C_\theta\Big(S_T(t), S_U(u)\Big),\hspace{16mm}(t, u) > 0,
+\end{equation*}
+
+\noindent e a função densidade bivariada (conjunta) de \textit{T} e \textit{U} definida como
+
+\begin{equation*}
+f_{T,U}(t, u) = c_{\theta}\big(S_T (t),S_U(u)\big)f_T(t)f_U(u),
+\end{equation*}
+
+\noindent onde
+
+\begin{equation*}
+c_{\theta}\big(S_T(t),S_U(u)\big)=\frac{\partial^2}{\partial v \partial w}C_\theta(v,w).
+\end{equation*}
+
+\subsubsection{Cópulas Arquimedianas}
+
+Uma distribuição bivariada pertence à família de cópulas Arquimedianas se possui a
+seguinte representação:
+
+\begin{equation*}
+C_\theta(v,w)=\phi\Big(\phi^{-}^{1}(v|\theta)+\phi^{-}^{1}(w|\theta) \Big| \theta\Big),\hspace{8mm}\phi:[0,1] \rightarrow [0,\infty],
+\end{equation*}
+
+\noindent onde $\phi(\cdot|\theta)$ é uma função contínua, decrescente e univariada conhecida como \textit{gerador da cópula
+arquimediana}.
+
+As principais propriedades das cópulas arquimedianas são:
+
+\begin{itemize}
+    \item $C_\theta(v,w)=C_\theta(w,v)$, dessa forma, $C_\theta$ é permutável;
+    \item $C_\theta(C_\theta(v,w), z)=C_\theta(v,C_\theta(w,z))$ para todo $v, w$ e $z$ $\in [0,1]$, então, $C_\theta$ é associativa;  
+    \item Seja $\phi$ o gerador de $C_\theta$, isto é, para qualquer constante $k > 0$ tem-se que $k\phi$ também será gerador de $C_\theta$.
+    
+
+\end{itemize}
+
+\subsubsection{Tipos de Cópula}
+
+A seguir, são mostradas somente as expressões das cópulas arquimedianas que serão
+utilizadas nesse estudo. Porém, existem outros modelos dessa família (ver \citeonline{nelsen2007}).
+
+\subsubsubsection{\textsf{Cópula independente}}
+
+\begin{equation*}
+   C_I(v,w)=vw. 
+\end{equation*}
+
+\subsubsubsection{\textsf{Cópula Ali-Mikhail-Haq (AMH)}}
+
+A cópula AMH é uma cópula arquimediana apresentada por
+
+\begin{equation*}
+    C_\theta^{AMH}(v,w)=\frac{vw}{1-\theta(1-v)(1-w)}, -1\le\theta\le1,   
+\end{equation*}
+
+\noindent sendo sua função geradora dada como
+
+\begin{equation*}
+    \phi(z|\theta)=log\Big(\frac{1-\theta(1-z)}{z}\Big).
+\end{equation*}
+
+\subsubsubsection{\textsf{Cópula Clayton}}
+
+A cópula Clayton \cite{clayton1978}, é uma cópula arquimediana assimétrica dada por:
+
+\begin{equation*}
+    C_\theta^C(v,w)=\Big(v^{-}^{\theta}+w^{-}^{\theta}-1\Big)^{-1/\theta}, \hspace{10mm}\theta>0,
+\end{equation*}
+
+\noindent sendo seu gerador
+
+\begin{equation*}
+    \phi(z|\theta)=\frac{1}{\theta}(z^{-\theta}-1)
+\end{equation*}
+
+\noindent e
+
+\begin{equation*}
+    \lim_{\theta\rightarrow0}C_\theta^C(v,w)=vw.
+\end{equation*}
+
+\subsubsubsection{\textsf{Cópula de Frank}}
+
+A cópula de Frank \cite{frank1979} pertence a família de cópulas arquimedianas e é dada\\por
+
+\begin{equation*}
+    C_\theta^F(v,w)=-\frac{1}{\theta}log\Big(1+\frac{(e^{-\theta v}-1)(e^{-\theta w}-1)}{e^{-\theta}-1}\Big),\hspace{10mm}\theta\neq0,
+\end{equation*}
+
+\noindent com
+
+\begin{equation*}
+    \phi(z|\theta)=-log\Big(\frac{e^{-\thetaz}-1}{e^{-\theta}-1}\Big).
+\end{equation*}
+
+
+\section{Bibliografia}
+\vspace{-1.3cm}
+\bibliography{Bibliografia}
+
+
+\end{document}
